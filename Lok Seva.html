@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lok Seva - Your Community Solutions</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Poppins:wght@700&amp;display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <style>
+    /* ==============================
+       CSS VARIABLES & IMPORT
+    =============================== */
+    :root {
+      --color-bg: #ffffff;
+      --color-text-base: #374151;
+      --color-text-muted: #6b7280; /* neutral gray-500 */
+      --color-primary: #111827; /* neutral gray-900 */
+      --color-primary-hover: #1f2937; /* neutral gray-800 */
+      --color-accent: #2563eb; /* blue-600 */
+      --color-accent-hover: #1e40af;
+      --border-radius: 0.75rem;
+      --shadow-light: 0 1px 3px rgba(0,0,0,0.1);
+      --shadow-medium: 0 4px 6px rgba(0,0,0,0.1);
+      --font-header: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --transition-speed: 0.3s;
+    }
+
+    /* ==============================
+       BASE RESET & TYPOGRAPHY
+    =============================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text-base);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    a:hover, a:focus {
+      color: var(--color-accent-hover);
+      outline: none;
+    }
+
+    /* ==============================
+       CONTAINER
+    =============================== */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
+
+    /* ==============================
+       HEADER & NAVIGATION
+    =============================== */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--color-bg);
+      box-shadow: var(--shadow-light);
+      z-index: 1000;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-family: var(--font-header);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      flex-wrap: wrap;
+    }
+    nav a {
+      position: relative;
+      padding: 0.3rem 0;
+      transition: color var(--transition-speed);
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-accent);
+      transition: width var(--transition-speed);
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    /* ==============================
+       HERO SECTION
+    =============================== */
+    .hero {
+      padding: 4rem 0 6rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--font-header);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      color: var(--color-primary);
+      line-height: 1.1;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      color: var(--color-text-muted);
+      font-size: 1.125rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: #fff;
+      background-color: var(--color-accent);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-medium);
+      transition: background-color var(--transition-speed), transform var(--transition-speed);
+      cursor: pointer;
+      border: none;
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: var(--color-accent-hover);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* ==============================
+       FEATURES GRID
+    =============================== */
+    .features {
+      padding: 4rem 0 6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2.5rem;
+    }
+    .feature-card {
+      background: #f9fafb;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-light);
+      padding: 2rem;
+      text-align: center;
+      transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+      cursor: default;
+    }
+    .feature-card:hover,
+    .feature-card:focus-within {
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.25);
+      transform: translateY(-4px);
+      outline: none;
+    }
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .feature-title {
+      font-family: var(--font-header);
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-primary);
+    }
+    .feature-desc {
+      color: var(--color-text-muted);
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    /* ==============================
+       FOOTER
+    =============================== */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid #e5e7eb;
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* ==============================
+       RESPONSIVE
+    =============================== */
+    @media (max-width: 600px) {
+      nav {
+        gap: 1rem;
+        font-size: 0.875rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .btn-primary {
+        padding: 0.75rem 1.75rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <div class="container nav-inner">
+      <div class="logo" tabindex="0">Lok Seva</div>
+      <nav role="navigation" aria-label="Primary Navigation">
+        <a href="#doctors">Doctors</a>
+        <a href="#groceries">Groceries</a>
+        <a href="#electricity">Electricity</a>
+        <a href="#machinery">Machinery</a>
+        <a href="#hospitals">Hospitals</a>
+        <a href="#education">Education</a>
+        <a href="#water">Water Supply</a>
+        <a href="#transportation">Transportation</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" role="banner" aria-label="Hero Section">
+      <h1>Lok Seva - Your Community Solutions Hub</h1>
+      <p>Find trusted local services for doctors, groceries, electricity issues, machinery, and more — all in one place, close to you.</p>
+      <button class="btn-primary" onclick="scrollToFeatures()">Explore Services</button>
+    </section>
+
+    <!-- FEATURES GRID -->
+    <section class="features container" id="services" aria-label="Services Features">
+      <article class="feature-card" id="doctors" tabindex="0" aria-labelledby="doctors-title">
+        <div class="feature-icon" aria-hidden="true">🩺</div>
+        <h3 class="feature-title" id="doctors-title">Doctors &amp; Health</h3>
+        <p class="feature-desc">Connect with nearby doctors and healthcare professionals for your medical needs quickly and reliably.</p>
+      </article>
+      <article class="feature-card" id="groceries" tabindex="0" aria-labelledby="groceries-title">
+        <div class="feature-icon" aria-hidden="true">🛒</div>
+        <h3 class="feature-title" id="groceries-title">Groceries &amp; Supplies</h3>
+        <p class="feature-desc">Order groceries and daily essentials from local stores with fast delivery or pickup options.</p>
+      </article>
+      <article class="feature-card" id="electricity" tabindex="0" aria-labelledby="electricity-title">
+        <div class="feature-icon" aria-hidden="true">💡</div>
+        <h3 class="feature-title" id="electricity-title">Electricity &amp; Utilities</h3>
+        <p class="feature-desc">Report and resolve electricity and utility issues by connecting with nearby service providers and officials.</p>
+      </article>
+      <article class="feature-card" id="machinery" tabindex="0" aria-labelledby="machinery-title">
+        <div class="feature-icon" aria-hidden="true">🚜</div>
+        <h3 class="feature-title" id="machinery-title">Machinery &amp; Equipment</h3>
+        <p class="feature-desc">Find and rent machinery or equipment near you for agricultural and construction needs efficiently.</p>
+      </article>
+      <article class="feature-card" id="hospitals" tabindex="0" aria-labelledby="hospitals-title">
+        <div class="feature-icon" aria-hidden="true">🏥</div>
+        <h3 class="feature-title" id="hospitals-title">Hospitals &amp; Emergency</h3>
+        <p class="feature-desc">Access nearby hospitals and emergency services for urgent care and support around the clock.</p>
+      </article>
+      <article class="feature-card" id="education" tabindex="0" aria-labelledby="education-title">
+        <div class="feature-icon" aria-hidden="true">🎒</div>
+        <h3 class="feature-title" id="education-title">Education &amp; Schools</h3>
+        <p class="feature-desc">Find local schools, coaching centers, and educational resources that empower your community.</p>
+      </article>
+      <article class="feature-card" id="water" tabindex="0" aria-labelledby="water-title">
+        <div class="feature-icon" aria-hidden="true">🚰</div>
+        <h3 class="feature-title" id="water-title">Water Supply &amp; Sanitation</h3>
+        <p class="feature-desc">Report water supply issues and discover solutions to ensure clean water and sanitation facilities.</p>
+      </article>
+      <article class="feature-card" id="transportation" tabindex="0" aria-labelledby="transportation-title">
+        <div class="feature-icon" aria-hidden="true">🚌</div>
+        <h3 class="feature-title" id="transportation-title">Transportation &amp; Mobility</h3>
+        <p class="feature-desc">Access local transportation options, vehicle services, and mobility solutions for your area.</p>
+        <a href="https://www.redbus.in/"></a>
+      </article>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Lok Seva. All rights reserved.
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Scroll smoothly to the services features section when the button is clicked
+    function scrollToFeatures() {
+      const featuresSection = document.getElementById('services');
+      if (featuresSection) {
+        featuresSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
+
